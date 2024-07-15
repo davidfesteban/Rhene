@@ -1,0 +1,21 @@
+# This is a robots.txt file that provides instructions for web crawlers
+
+# Allow all crawlers complete access
+User-agent: *
+Disallow:
+
+# Disallow specific directories or files (uncomment and adjust as needed)
+# Disallow: /private/
+# Disallow: /tmp/
+# Disallow: /backup/
+
+# Block a specific web crawler (e.g., Googlebot)
+# User-agent: Googlebot
+# Disallow: /no-google/
+
+# Allow specific crawlers to a certain directory (uncomment and adjust as needed)
+# User-agent: Bingbot
+# Allow: /public/
+
+# Sitemap location (uncomment and adjust as needed)
+# Sitemap: https://www.example.com/sitemap.xml

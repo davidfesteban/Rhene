@@ -1,0 +1,35 @@
+{
+  "name": "capacitor-app",
+  "version": "1.0.0",
+  "description": "An Amazing Capacitor App",
+  "main": "index.js",
+  "keywords": [
+    "capacitor",
+    "mobile"
+  ],
+  "scripts": {
+    "create": "npm install @capacitor/ios && npm install @capacitor/android && npx cap add ios && npx cap add android",
+    "icon-splash": "npx @capacitor/assets generate --iconBackgroundColor '#eeeeee' --iconBackgroundColorDark '#222222' --splashBackgroundColor '#eeeeee' --splashBackgroundColorDark '#111111'",
+    "start": "vite",
+    "build": "npm run icon-splash && vite build && npx cap sync",
+    "preview": "vite preview",
+    "ios": "npm run build && npx cap run ios",
+    "web": "npm run build && npm run start",
+    "android": "npm run build && npx cap run android"
+  },
+  "dependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/camera": "latest",
+    "@capacitor/core": "latest",
+    "@capacitor/ios": "^6.1.0",
+    "@capacitor/splash-screen": "latest",
+    "@ionic/cli": "^7.2.0",
+    "@ionic/core": "^8.2.5"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "latest",
+    "vite": "^2.9.13"
+  },
+  "author": "",
+  "license": "ISC"
+}

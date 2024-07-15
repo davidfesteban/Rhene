@@ -1,0 +1,10 @@
+{
+  "appId": "dev.misei",
+  "appName": "Rhene",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  }
+}
