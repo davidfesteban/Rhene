@@ -1,0 +1,18 @@
+@import url('https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css');@import url('https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css');
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+}
+.full-flex {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+}

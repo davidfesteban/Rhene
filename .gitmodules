@@ -1,0 +1,6 @@
+[submodule "api/RheneAPI"]
+  path = api/RheneAPI
+  url = https://github.com/username/RheneAPI.git
+[submodule "openapi"]
+	path = openapi
+	url = git@github.com:davidfesteban/RheneAPI.git

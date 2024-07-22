@@ -1,0 +1,23 @@
+type: object
+properties:
+  _id:
+    type: string
+    format: uuid
+  _consumerId:
+    type: string
+    format: uuid
+  _workerId:
+    type: string
+    format: uuid
+  approval:
+    $ref: './Approval.yaml'
+  from:
+    type: string
+    format: date-time
+  totalTime:
+    type: number
+    format: double
+  serviceCopy:
+    $ref: './Service.yaml'
+  billingCopy:
+    $ref: './Billing.yaml'

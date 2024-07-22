@@ -1,0 +1,39 @@
+openapi: 3.0.2
+info:
+  title: Sample API
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+paths: {}
+components:
+  schemas:
+    Identity:
+      $ref: './schemas/Identity.yaml'
+    Consumer:
+      $ref: './schemas/Consumer.yaml'
+    ConsumerPrivacySettings:
+      $ref: './schemas/ConsumerPrivacySettings.yaml'
+    ConsumerBillingSettings:
+      $ref: './schemas/ConsumerBillingSettings.yaml'
+    AppointmentId:
+      $ref: './schemas/AppointmentId.yaml'
+    ReviewId:
+      $ref: './schemas/ReviewId.yaml'
+    Review:
+      $ref: './schemas/Review.yaml'
+    Worker:
+      $ref: './schemas/Worker.yaml'
+    WorkerBillingSettings:
+      $ref: './schemas/WorkerBillingSettings.yaml'
+    Appointment:
+      $ref: './schemas/Appointment.yaml'
+    Approval:
+      $ref: './schemas/Approval.yaml'
+    Unavailability:
+      $ref: './schemas/Unavailability.yaml'
+    Services:
+      $ref: './schemas/Services.yaml'
+    Service:
+      $ref: './schemas/Service.yaml'
+    Billing:
+      $ref: './schemas/Billing.yaml'

@@ -1,0 +1,6 @@
+type: object
+properties:
+  serviceName:
+    type: string
+  description:
+    type: string

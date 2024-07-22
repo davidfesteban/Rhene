@@ -1,0 +1,7 @@
+type: object
+properties:
+  billingAmount:
+    type: number
+    format: double
+  currency:
+    type: string

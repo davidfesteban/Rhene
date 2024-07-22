@@ -1,0 +1,10 @@
+type: object
+properties:
+  _id:
+    type: string
+    format: uuid
+  email:
+    type: string
+  password:
+    type: string
+    description: Password hash

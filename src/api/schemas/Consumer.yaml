@@ -1,0 +1,27 @@
+type: object
+properties:
+  _id:
+    type: string
+    format: uuid
+  _IdentityId:
+    type: string
+    format: uuid
+  _appointmentIds:
+    type: array
+    items:
+      $ref: './AppointmentId.yaml'
+  _reviewIds:
+    type: array
+    items:
+      $ref: './ReviewId.yaml'
+  name:
+    type: string
+  profileImg:
+    type: string
+    format: base64
+  phone:
+    type: string
+  privacySettings:
+    $ref: './ConsumerPrivacySettings.yaml'
+  billingSettings:
+    $ref: './ConsumerBillingSettings.yaml'
