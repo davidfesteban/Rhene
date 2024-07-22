@@ -1,6 +1,0 @@
-type: object
-properties:
-  hasPaidAdvertisement:
-    type: boolean
-  TBD:
-    type: string

@@ -1,9 +1,0 @@
-type: object
-properties:
-  _appointmentId:
-    type: string
-    format: uuid
-  date:
-    type: string
-    format: date
-description: Comparable based on date. Recent goes first.
