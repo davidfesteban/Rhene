@@ -1,3 +1,6 @@
+generated-client/
+www/
+
 .idea/
 node_modules/
 .vscode/

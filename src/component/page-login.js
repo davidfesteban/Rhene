@@ -1,4 +1,6 @@
 import {Router} from "../config/router";
+import "../service/member"
+import {MemberService} from "../service/member";
 
 export class PageLogin extends HTMLElement {
 
@@ -33,14 +35,9 @@ export class PageLogin extends HTMLElement {
   `;
         const loginButton = shadow.getElementById('loginButton');
         loginButton.addEventListener('click', () => {
-            new Router().push("/two", delay);
+            new Router().push("/two", MemberService.magic);
         });
     }
 
 
-}
-
-async function delay() {
-    await new Promise(resolve => setTimeout(resolve, 10000));
-    throw new Error("Me he exo caca");
 }
