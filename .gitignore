@@ -1,5 +1,6 @@
 generated-client/
 www/
+apiclient.js
 
 .idea/
 node_modules/

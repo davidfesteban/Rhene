@@ -10,9 +10,8 @@
   "scripts": {
     "create": "npm install @capacitor/ios && npm install @capacitor/android && npx cap add ios && npx cap add android",
     "icon-splash": "npx @capacitor/assets generate --iconBackgroundColor '#eeeeee' --iconBackgroundColorDark '#222222' --splashBackgroundColor '#eeeeee' --splashBackgroundColorDark '#111111'",
-    "api-codegen": "openapi-generator-cli generate -i ./openapi/openapi.yaml -g javascript -o ./generated-client --additional-properties=npmName=restClient,supportsES6=true,withInterfaces=true",
     "start": "vite",
-    "build": "npm run icon-splash && vite build && npx cap sync",
+    "build": "node codegen.js && npm run icon-splash && vite build && npx cap sync",
     "preview": "vite preview",
     "ios": "npm run build && npx cap run ios",
     "web": "npm run build && npm run start",
@@ -26,12 +25,11 @@
     "@capacitor/preferences": "^6.0.1",
     "@capacitor/splash-screen": "latest",
     "@ionic/cli": "^7.2.0",
-    "@ionic/core": "^8.2.5"
+    "@ionic/core": "^8.2.5",
+    "js-yaml": "^4.1.0"
   },
   "devDependencies": {
     "@capacitor/cli": "latest",
-    "@openapitools/openapi-generator-cli": "latest",
-    "generated-client": "file:./generated-client",
     "vite": "^2.9.13"
   },
   "author": "",

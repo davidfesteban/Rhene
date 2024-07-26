@@ -1,4 +1,4 @@
-import {PageLogin} from "../component/page-login.js";
+import {PageLogin} from "../component/login/page-login.js";
 import {PageTwo} from "../component/page-two.js";
 import {PageLoading} from "../component/loading/page-loading.js";
 import {Router} from "../config/router";

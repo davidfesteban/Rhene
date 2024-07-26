@@ -1,16 +1,18 @@
-
 import {Storage} from "../config/storage";
+import {Consumer} from "../../generated-client";
 
-export class MemberService {
+export class CacheService {
 
     static #instance = null;
     #storage = new Storage();
 
+    #token = "";
+
     constructor() {
-        if (!MemberService.#instance) {
-            MemberService.#instance = this;
+        if (!CacheService.#instance) {
+            CacheService.#instance = this;
         }
-        return MemberService.#instance;
+        return CacheService.#instance;
     }
 
     async registerWorker(worker) {
@@ -23,7 +25,7 @@ export class MemberService {
     }
 
     async login(identity) {
-        //this.#token = await this.#storage.getStoredValue(this.#storage.keys.TOKEN)
+        this.#token = await this.#storage.getStoredValue(this.#storage.keys.TOKEN)
 
 
         //check token
