@@ -1,13 +1,10 @@
-//import {ApiClient, DefaultApi} from "generated-client";
-
-
+import {Identity} from "../../apiclient";
 
 export class LoginViewModel {
 
     static #instance = null;
-    #rheneApi = new Identity(); //new ApiClient();
-    #identity = undefined; //new this.#rheneApi.Identity();
-    #bindings = {};
+    #identity = new Identity();
+    #bindings = [];
 
     constructor() {
         if (!LoginViewModel.#instance) {
@@ -17,7 +14,7 @@ export class LoginViewModel {
     }
 
     addBindings(binding) {
-        this.#bindings.add(binding);
+        this.#bindings.push(binding);
     }
 
     updateAllBindings() {

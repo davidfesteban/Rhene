@@ -128,10 +128,14 @@ function generateClasses(schemas) {
     for (const [className, schema] of Object.entries(schemas)) {
         if (schema.type === 'object' && schema.properties) {
             classes += `export class ${className} {\n`;
-            classes += '  constructor(data) {\n';
+            classes += '  constructor(data = {}) {\n';
 
             for (const [propName, propDef] of Object.entries(schema.properties)) {
-                classes += `    this.${propName} = data.${propName};\n`;
+                if(propDef.$ref) {
+                    classes += `    this.${propName} = data['${propName}']? data['${propName}'] : new ${propDef.$ref.split("/").pop().replace(".yaml", "")}();\n`;
+                } else {
+                    classes += `    this.${propName} = data['${propName}']? data['${propName}'] : undefined ;\n`;
+                }
             }
 
             classes += '  }\n';
@@ -140,11 +144,6 @@ function generateClasses(schemas) {
     }
 
     return classes;
-}
-
-function generateMethods(paths) {
-    // Adding methods for API calls based on paths
-
 }
 
 

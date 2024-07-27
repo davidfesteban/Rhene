@@ -1,4 +1,4 @@
-class Binding {
+export class Binding {
     constructor(object, property, element, event) {
         this.object = object;
         this.property = property;

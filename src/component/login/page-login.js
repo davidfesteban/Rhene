@@ -2,6 +2,7 @@ import {Router} from "../../config/router";
 import "../../service/member"
 import {MemberService} from "../../service/member";
 import {LoginViewModel} from "./loginViewModel";
+import {Binding} from "../../config/binding";
 
 export class PageLogin extends HTMLElement {
 
@@ -43,12 +44,12 @@ export class PageLogin extends HTMLElement {
         const passwordInput = shadow.getElementById('passwordInput');
 
         // Bind the email property of the identity to the username input field
-        this.#viewModel.addBindings(new Binding(this.#viewModel.identity(), 'email', usernameInput, 'input'));
-        this.#viewModel.addBindings(new Binding(this.#viewModel.identity(), 'password', passwordInput, 'input'));
+        this.#viewModel.addBindings(new Binding(this.#viewModel.identity, 'email', usernameInput, 'input'));
+        this.#viewModel.addBindings(new Binding(this.#viewModel.identity, 'password', passwordInput, 'input'));
 
         loginButton.addEventListener('click', () => {
-            console.log(this.#viewModel.identity());
-            new Router().push("/two", new MemberService().login(this.#viewModel.identity()));
+            console.log(this.#viewModel.identity);
+            new Router().push("/two", new MemberService().login(this.#viewModel.identity));
         });
     }
 
