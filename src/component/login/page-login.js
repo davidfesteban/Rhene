@@ -1,27 +1,36 @@
 import {Router} from "../../config/router";
 import "../../service/member"
-import {MemberService} from "../../service/member";
-import {LoginViewModel} from "./loginViewModel";
+import {LoginViewmodel} from "./login-viewmodel";
 import {Binding} from "../../config/binding";
+import cssGeneric from '../../global/global.css'
 
 export class PageLogin extends HTMLElement {
 
     static htmlText = `
+<style>
+    ${cssGeneric}
+</style>
 <ion-content>
-    <div class="login-container">
+    <div class="ion-justify-content-center ion-align-items-center full-flex">
         <ion-card class="login-form">
             <ion-card-header>
                 <ion-card-title>Login</ion-card-title>
             </ion-card-header>
             <ion-card-content>
                 <ion-item>
-                    <ion-label position="floating">Username</ion-label>
-                    <ion-input type="text" id="usernameInput" required></ion-input>
+                    <ion-input id="usernameInput" label="Username" labelPlacement="floating" placeholder="Username..."></ion-input>
                 </ion-item>
                 <ion-item>
-                    <ion-label position="floating">Password</ion-label>
-                    <ion-input type="password" id="passwordInput" required></ion-input>
+                    <ion-input id="passwordInput" label="Password" labelPlacement="floating" placeholder="Password..." required type="password"></ion-input>
                 </ion-item>
+                <ion-segment id="profileSelector" color="secondary" value="consumer">
+                    <ion-segment-button value="consumer">
+                      <ion-label>Consumer</ion-label>
+                    </ion-segment-button>
+                    <ion-segment-button value="worker">
+                      <ion-label>Worker</ion-label>
+                    </ion-segment-button>
+                </ion-segment>
                 <ion-button expand="block" id="loginButton">Login</ion-button>
             </ion-card-content>
         </ion-card>
@@ -29,7 +38,7 @@ export class PageLogin extends HTMLElement {
 </ion-content>
 `;
 
-    #viewModel = new LoginViewModel();
+    #viewModel = new LoginViewmodel();
 
 
     async connectedCallback() {
@@ -42,14 +51,16 @@ export class PageLogin extends HTMLElement {
         const loginButton = shadow.getElementById('loginButton');
         const usernameInput = shadow.getElementById('usernameInput');
         const passwordInput = shadow.getElementById('passwordInput');
+        const profileSelector = shadow.getElementById('profileSelector');
 
         // Bind the email property of the identity to the username input field
         this.#viewModel.addBindings(new Binding(this.#viewModel.identity, 'email', usernameInput, 'input'));
         this.#viewModel.addBindings(new Binding(this.#viewModel.identity, 'password', passwordInput, 'input'));
+        this.#viewModel.addBindings(new Binding(this.#viewModel, 'profileSelector', profileSelector, 'input'));
 
         loginButton.addEventListener('click', () => {
-            console.log(this.#viewModel.identity);
-            new Router().push("/two", new MemberService().login(this.#viewModel.identity));
+            console.log(this.#viewModel);
+            new Router().push("/two", () => this.#viewModel.login());
         });
     }
 
